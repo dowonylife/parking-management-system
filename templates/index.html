@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>메인 페이지</h2>
+
+<!-- 실시간 웹캠 스트림 -->
+<div>
+    <h3>실시간 웹캠 스트림</h3>
+    <img src="{{ url_for('video_feed') }}" alt="Live Camera Stream" style="width: 100%; max-width: 600px;">
+</div>
+
+<!-- 차량 번호 입력 및 버튼 -->
+<h3>입차 처리</h3>
+<div>
+    <form id="input-form" method="POST" action="{{ url_for('entry') }}" style="margin-bottom: 20px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <label for="car_number">차량 번호:</label>
+            <input type="text" id="car_number" name="car_number" placeholder="차량 번호 입력" style="flex: 1;">
+            <!-- 수동 입력 처리 버튼 -->
+            <button type="submit" style="white-space: nowrap;">입차</button>
+            <!-- 자동 감지 버튼 -->
+            <button type="button" onclick="startCapture('car_number')" style="white-space: nowrap;">자동 감지</button>
+        </div>
+    </form>
+</div>
+
+<h3>출차 처리</h3>
+<div>
+    <form id="input-form" method="POST" action="{{ url_for('exit') }}" style="margin-bottom: 20px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <label for="exit_car_number">차량 번호:</label>
+            <input type="text" id="exit_car_number" name="car_number" placeholder="차량 번호 입력" style="flex: 1;">
+            <!-- 수동 입력 처리 버튼 -->
+            <button type="submit" style="white-space: nowrap;">출차</button>
+            <!-- 자동 감지 버튼 -->
+            <button type="button" onclick="startCapture('car_number')" style="white-space: nowrap;">자동 감지</button>
+        </div>
+    </form>
+</div>
+
+<!-- 로딩 애니메이션 -->
+<div id="loading-overlay" style="display: none;">
+    <div id="loading-spinner">
+        <div class="spinner"></div>
+        <p>번호판 인식 중입니다. 잠시만 기다려 주세요...</p>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='scripts.js') }}"></script>
+
+{% endblock %}

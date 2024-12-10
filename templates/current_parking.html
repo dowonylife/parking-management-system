@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>현재 주차된 차량 정보</h2>
+<p>남은 주차 공간: <strong>{{ available_spots }}</strong></p>
+
+<!-- 테이블 스타일 적용 -->
+<table class="parking-table">
+    <thead>
+        <tr>
+            <th>차량 번호</th>
+            <th>입차 시간</th>
+            <th>주차 시간 (시간)</th>
+            <th>예상 비용 (원)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for car in car_info %}
+        <tr>
+            <td>{{ car.car_number }}</td>
+            <td>{{ car.entry_time }}</td>
+            <td>{{ car.hours }}</td>
+            <td>{{ car.estimated_cost }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- 주차된 차량이 없을 때 표시 -->
+{% if not car_info %}
+<p class="no-parking">현재 주차된 차량이 없습니다.</p>
+{% endif %}
+{% endblock %}

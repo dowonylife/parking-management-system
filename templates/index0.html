@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Camera</title>
+</head>
+<body bgcolor="black">
+    <h1>Live Camera Streaming</h1>
+    <img src="/video_feed" width="640" height="480">
+    <br>
+    <button onclick="capture()">Capture Frame</button>
+    <script>
+        function capture() {
+            fetch('/capture')
+                .then(response => response.text())
+                .then(data => alert(data))
+                .catch(error => alert('Error: ' + error));
+        }
+    </script>
+</body>
+</html>

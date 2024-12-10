@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>월별 통계</h2>
+
+<!-- 월 선택 폼 -->
+<form method="POST" action="{{ url_for('stats') }}" class="stats-form">
+    <label for="month">월 선택:</label>
+    <input type="month" id="month" name="month" required>
+    <button type="submit">통계 보기</button>
+</form>
+
+<!-- 통계 요약 -->
+{% if summary %}
+<div class="stats-summary">
+    <h3>통계 요약</h3>
+    <p>선택된 월: <strong>{{ summary.month }}</strong></p>
+    <p>총 차량 수: <strong>{{ summary.total_cars }}</strong>대</p>
+    <p>총 수익: <strong>{{ summary.total_revenue }}</strong>원</p>
+</div>
+{% endif %}
+
+<!-- 통계 그래프 -->
+{% if graph_url %}
+    <h3>통계 그래프</h3>
+    <div class="graph-container">
+        <img src="{{ graph_url }}" alt="통계 그래프">
+    </div>
+{% endif %}
+
+<!-- 데이터 테이블 -->
+{% if stats_data %}
+<table class="stats-table">
+    <thead>
+        <tr>
+            <th>날짜</th>
+            <th>차량 수</th>
+            <th>수익 (원)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for day, data in stats_data.items() %}
+        <tr>
+            <td>{{ day }}</td>
+            <td>{{ data['car_count'] }}</td>
+            <td>{{ data['revenue'] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+
+<!-- 데이터가 없는 경우 -->
+{% if not stats_data and not graph_url %}
+<p class="no-data">선택된 월에 대한 통계 데이터가 없습니다.</p>
+{% endif %}
+{% endblock %}

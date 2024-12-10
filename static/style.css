@@ -1,0 +1,340 @@
+/* 색상 테마 */
+:root {
+  --primary-color: #3498db; /* 파란색 */
+  --secondary-color: #2ecc71; /* 초록색 */
+  --error-color: #e74c3c; /* 빨간색 */
+  --background-color: #f4f4f9; /* 라이트 그레이 */
+  --text-color: #2c3e50; /* 진한 회색 */
+  --button-color: #3498db; /* 버튼 블루 */
+}
+
+/* 공통 스타일 */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+/* 헤더 */
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 24px;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: var(--secondary-color);
+}
+
+nav a.active {
+  font-weight: bold;
+  color: #007BFF;
+  text-decoration: underline;
+}
+
+/* 메인 콘텐츠 스타일 */
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* 폼 스타일 */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input, button {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+button {
+  background-color: var(--button-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* 플래시 메시지 */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.success {
+  color: var(--secondary-color);
+}
+
+.error {
+  color: var(--error-color);
+}
+
+.info {
+  color: var(--primary-color);
+}
+
+/* 그래프 이미지 스타일 */
+img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.camera-stream img {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#ocr-results {
+  font-family: Arial, sans-serif;
+  color: #333;
+  line-height: 1.5;
+}
+
+
+/* 기본 테이블 스타일 */
+.parking-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.parking-table thead {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  border-bottom: 2px solid #ddd;
+}
+
+.parking-table th,
+.parking-table td {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+}
+
+.parking-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.parking-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* 빈 주차 데이터 메시지 */
+.no-parking {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #666;
+  text-align: center;
+}
+
+
+/* 폼 스타일 */
+.stats-form {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 요약 스타일 */
+.stats-summary {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+/* 그래프 스타일 */
+.graph-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.graph-container img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* 테이블 스타일 */
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.stats-table th,
+.stats-table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.stats-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.stats-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.stats-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* 데이터 없음 메시지 */
+.no-data {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #666;
+}
+
+
+/* 입력창과 버튼 컨테이너 */
+#input-form div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 입력창 스타일 */
+#car_number {
+  flex: 1; /* 남은 공간을 입력창이 차지하도록 설정 */
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* 버튼 스타일 */
+#input-form button {
+  padding: 8px 16px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #007BFF;
+  color: #fff;
+  white-space: nowrap;
+}
+
+#input-form button:hover {
+  background-color: #0056b3;
+}
+
+
+/* 로딩 애니메이션 스타일 */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #007BFF;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+/* 로딩 텍스트 */
+#loading-spinner p {
+  font-size: 16px;
+  color: #555;
+  margin-top: 10px;
+}
+
+
+/* 로딩 오버레이: 화면 전체를 덮음 */
+#loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명한 어두운 배경 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* 가장 위에 표시 */
+  pointer-events: all; /* 다른 요소 클릭 불가 */
+}
+
+/* 로딩 스피너 컨테이너 */
+#loading-spinner {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 스피너 애니메이션 */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #007BFF;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+/* 로딩 텍스트 */
+#loading-spinner p {
+  font-size: 16px;
+  color: #555;
+  margin-top: 10px;
+}

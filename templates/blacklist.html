@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>블랙리스트 관리</h2>
+<form method="POST" action="{{ url_for('blacklist') }}">
+    <input type="text" name="car_number" placeholder="차량 번호 입력" required>
+    <button type="submit" name="action" value="add">추가</button>
+    <button type="submit" name="action" value="remove">제거</button>
+</form>
+
+<h3>등록된 블랙리스트</h3>
+<ul>
+    {% for car in blacklist %}
+        <li>{{ car[0] }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

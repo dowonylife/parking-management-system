@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주차 관리 시스템</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>주차 관리 시스템</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">홈</a>
+            <a href="{{ url_for('current_parking') }}">현재 주차상태</a>
+            <a href="{{ url_for('stats') }}">월별 통계</a>
+            <a href="{{ url_for('blacklist') }}">블랙리스트 관리</a>
+            <a href="{{ url_for('report') }}">요금 보고서</a>
+        </nav>
+    </header>
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <hr>
+        <p>&copy; 2024 주차 관리 시스템</p>
+    </footer>
+</body>
+</html>

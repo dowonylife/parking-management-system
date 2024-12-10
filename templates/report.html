@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>요금 정책 시뮬레이션</h2>
+<form method="POST" action="{{ url_for('report') }}">
+    <label for="fee">시간당 요금:</label>
+    <input type="number" id="fee" name="fee" required>
+    <button type="submit">시뮬레이션 실행</button>
+</form>
+{% endblock %}
